@@ -62,12 +62,7 @@ SPECTACULAR_SETTINGS = {
 CORS_ALLOW_ALL_ORIGINS = False
 
 CORS_ALLOWED_ORIGINS = [
-    origin.strip()
-    for origin in config(
-        "CORS_ALLOWED_ORIGINS",
-        default=""
-    ).split(",")
-    if origin.strip()
+    config("CORS_ALLOWED_ORIGINS")
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
