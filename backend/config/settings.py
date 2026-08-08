@@ -13,7 +13,11 @@ DEBUG = config(
     cast=bool
 )
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "personal-finance-tracker-tx13.onrender.com",
+]
 
 
 # Application definition
@@ -62,7 +66,7 @@ SPECTACULAR_SETTINGS = {
 CORS_ALLOW_ALL_ORIGINS = False
 
 CORS_ALLOWED_ORIGINS = [
-    config("CORS_ALLOWED_ORIGINS")
+    "https://personal-finance-frontend-r5yg.onrender.com",
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
