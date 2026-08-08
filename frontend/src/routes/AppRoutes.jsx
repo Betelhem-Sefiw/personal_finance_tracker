@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Transactions from "../pages/Transactions";
 import Login from "../pages/Login";
@@ -6,20 +6,22 @@ import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
 import Categories from "../pages/Categories";
 import Budgets from "../pages/Budgets";
+import Notifications from "../pages/Notifications";
 
 import ProtectedRoute from "./ProtectedRoute";
 
-
 function AppRoutes() {
-
     return (
-
         <BrowserRouter>
-
             <Routes>
 
-                {/* Public pages */}
+                {/* Default page */}
+                <Route
+                    path="/"
+                    element={<Navigate to="/login" replace />}
+                />
 
+                {/* Public pages */}
                 <Route
                     path="/login"
                     element={<Login />}
@@ -30,9 +32,7 @@ function AppRoutes() {
                     element={<Register />}
                 />
 
-
                 {/* Protected pages */}
-
                 <Route
                     path="/dashboard"
                     element={
@@ -68,14 +68,7 @@ function AppRoutes() {
                         </ProtectedRoute>
                     }
                 />
-                <Route
-                    path="/notifications"
-                    element={
-                        <ProtectedRoute>
-                            <Notifications />
-                        </ProtectedRoute>
-                    }
-                />
+
                 <Route
                     path="/notifications"
                     element={
@@ -86,9 +79,7 @@ function AppRoutes() {
                 />
 
             </Routes>
-
         </BrowserRouter>
-
     );
 }
 
